@@ -10,7 +10,7 @@ df = pd.DataFrame({
 suggestions = pd.DataFrame([
     {"plot_type": "heatmap", "variables": ["age", "fare", "pclass"]},
     {"plot_type": "lineplot", "variables": ["age", "fare"]},
-    {"plot_type": "correlation_analysis", "variables": ""}  # 👈 New one!
+    {"plot_type": "correlation_analysis", "variables": ""} 
 ])
 
 gen = PlotGenerator(df, suggestions)
