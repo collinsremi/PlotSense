@@ -288,7 +288,6 @@ class PlotGenerator:
                         new_plots = plugin.get_plots()
                         if isinstance(new_plots, dict):
                             for name, func in new_plots.items():
-                                # FIX: wrap plugin with data
                                 def wrapped_func(variables, func=func, **kwargs):
                                     return func(self.data, variables, **kwargs)
                                 self.register_plot_callable(name, wrapped_func)
