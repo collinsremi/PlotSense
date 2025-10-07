@@ -68,7 +68,14 @@ class PlotGenerator:
         
         suggestion = self.suggestions.iloc[suggestion_index]
         plot_type = suggestion['plot_type'].lower()
-        variables = [v.strip() for v in suggestion['variables'].split(',')]
+        vars_value = suggestion['variables']
+        if isinstance(vars_value, str):
+            variables = [v.strip() for v in vars_value.split(',') if v.strip()]
+        elif isinstance(vars_value, list):
+            variables = vars_value
+        else:
+            variables = []
+
         
         if plot_type not in self.plot_functions:
             print(f"This version of PlotSense does not support plot type: {plot_type}")
